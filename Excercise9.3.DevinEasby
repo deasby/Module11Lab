@@ -1,0 +1,25 @@
+# Devin Easby
+# CIS 129 Excercise 9.3
+
+import csv 
+with open('grades.csv', mode='w', newline='') as file: 
+    writer = csv.writer(file)
+
+    # Collect data from user 
+    while True:  
+        # Collect students first name, last name, and the three test grades 
+        first_name = input("Enter students first name (or 'done' to finish): ")
+
+        if first_name.lower() == 'done':
+            break
+
+        last_name = input('Enter students last name: ')
+        try:
+            exam1 = int(input('Enter the grade for exam 1: '))
+            exam2 = int(input('Enter the grade for exam 2: '))
+            exam3 = int(input('Enter the grade for exam 3: '))
+        except ValueError: 
+            print('Invalid input. Please enter interger vcalues for the grades.')
+
+        print(f'Record for {first_name} {last_name} added.')   
+    print('All records have been written to grades.csv.') 
